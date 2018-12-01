@@ -1,0 +1,12 @@
+先启动服务端 8761 eureka-server 
+
+在启动提供者1 7900 provider-user 
+
+在启动提供者2 7901 provider-user2 
+
+最后启动消费者 8010 consumer-client 
+
+访问Eureka控制台： http://localhost:8761/
+
+访问请求： http://localhost:8010/hello/任意
+
