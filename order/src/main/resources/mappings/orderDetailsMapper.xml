@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zh.dao.orderDetailsMapper">
+	<resultMap id="BaseResultMap"
+		type="com.zh.entiy.orderDetails">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="commodity_name" property="commodityName"
+			jdbcType="VARCHAR" />
+		<result column="commodity_id" property="commodityId"
+			jdbcType="INTEGER" />
+		<result column="commodity_type" property="commodityType"
+			jdbcType="VARCHAR" />
+		<result column="order_id" property="orderId" jdbcType="INTEGER" />
+	</resultMap>
+	<resultMap id="ResultMapWithBLOBs"
+		type="com.zh.entiy.orderDetails" extends="BaseResultMap">
+		<result column="commodity_price" property="commodityPrice"
+			jdbcType="LONGVARBINARY" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, commodity_name, commodity_id, commodity_type, order_id
+	</sql>
+	<sql id="Blob_Column_List">
+		commodity_price
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from zh_order_details
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey"
+		parameterType="java.lang.Integer">
+		delete from zh_order_details
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.zh.entiy.orderDetails">
+		insert into zh_order_details (id, commodity_name, commodity_id,
+		commodity_type, order_id, commodity_price
+		)
+		values (#{id,jdbcType=INTEGER}, #{commodityName,jdbcType=VARCHAR},
+		#{commodityId,jdbcType=INTEGER},
+		#{commodityType,jdbcType=VARCHAR}, #{orderId,jdbcType=INTEGER}, #{commodityPrice,jdbcType=LONGVARBINARY}
+		)
+	</insert>
+	<insert id="insertSelective"
+		parameterType="com.zh.entiy.orderDetails">
+		insert into zh_order_details
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="commodityName != null">
+				commodity_name,
+			</if>
+			<if test="commodityId != null">
+				commodity_id,
+			</if>
+			<if test="commodityType != null">
+				commodity_type,
+			</if>
+			<if test="orderId != null">
+				order_id,
+			</if>
+			<if test="commodityPrice != null">
+				commodity_price,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="commodityName != null">
+				#{commodityName,jdbcType=VARCHAR},
+			</if>
+			<if test="commodityId != null">
+				#{commodityId,jdbcType=INTEGER},
+			</if>
+			<if test="commodityType != null">
+				#{commodityType,jdbcType=VARCHAR},
+			</if>
+			<if test="orderId != null">
+				#{orderId,jdbcType=INTEGER},
+			</if>
+			<if test="commodityPrice != null">
+				#{commodityPrice,jdbcType=LONGVARBINARY},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.zh.entiy.orderDetails">
+		update zh_order_details
+		<set>
+			<if test="commodityName != null">
+				commodity_name = #{commodityName,jdbcType=VARCHAR},
+			</if>
+			<if test="commodityId != null">
+				commodity_id = #{commodityId,jdbcType=INTEGER},
+			</if>
+			<if test="commodityType != null">
+				commodity_type = #{commodityType,jdbcType=VARCHAR},
+			</if>
+			<if test="orderId != null">
+				order_id = #{orderId,jdbcType=INTEGER},
+			</if>
+			<if test="commodityPrice != null">
+				commodity_price = #{commodityPrice,jdbcType=LONGVARBINARY},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKeyWithBLOBs"
+		parameterType="com.zh.entiy.orderDetails">
+		update zh_order_details
+		set commodity_name = #{commodityName,jdbcType=VARCHAR},
+		commodity_id = #{commodityId,jdbcType=INTEGER},
+		commodity_type = #{commodityType,jdbcType=VARCHAR},
+		order_id = #{orderId,jdbcType=INTEGER},
+		commodity_price = #{commodityPrice,jdbcType=LONGVARBINARY}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="com.zh.entiy.orderDetails">
+		update zh_order_details
+		set commodity_name = #{commodityName,jdbcType=VARCHAR},
+		commodity_id = #{commodityId,jdbcType=INTEGER},
+		commodity_type = #{commodityType,jdbcType=VARCHAR},
+		order_id = #{orderId,jdbcType=INTEGER}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+</mapper>

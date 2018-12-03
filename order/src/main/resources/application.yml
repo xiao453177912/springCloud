@@ -1,0 +1,30 @@
+server:
+  port: 7900
+  
+spring:
+  application:
+    name: order
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/zh
+    username: root
+    password: root
+            
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:password123@localhost:8761/eureka
+
+mybatis:
+  mapUnderscoreToCamelCase: true
+  typeAliasesPackage: com.zh.dao.orderMapper
+  mapperLocations: classpath:mappers/*.xml
+  
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level: 
+    cn.jt.mapper: debug
