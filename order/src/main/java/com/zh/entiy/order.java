@@ -6,7 +6,10 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 
+import lombok.Data;
+
 @TableName(value="zh_order")
+@Data
 public class order {
 	@TableId(type=IdType.AUTO)
     private Integer orderId;
@@ -19,43 +22,5 @@ public class order {
 
     private Integer orderPrice;
 
-    public Integer getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
-    }
-
-    public String getOrderNumber() {
-        return orderNumber;
-    }
-
-    public void setOrderNumber(String orderNumber) {
-        this.orderNumber = orderNumber == null ? null : orderNumber.trim();
-    }
-
-    public Date getOrderDate() {
-        return orderDate;
-    }
-
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
-    }
-
-    public String getOrderPayStatus() {
-        return orderPayStatus;
-    }
-
-    public void setOrderPayStatus(String orderPayStatus) {
-        this.orderPayStatus = orderPayStatus == null ? null : orderPayStatus.trim();
-    }
-
-    public Integer getOrderPrice() {
-        return orderPrice;
-    }
-
-    public void setOrderPrice(Integer orderPrice) {
-        this.orderPrice = orderPrice;
-    }
+    
 }

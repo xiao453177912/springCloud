@@ -18,8 +18,8 @@ eureka:
 
 mybatis:
   mapUnderscoreToCamelCase: true
-  typeAliasesPackage: com.zh.dao.orderMapper
-  mapperLocations: classpath:mappers/*.xml
+  typeAliasesPackage: com.zh.entiy
+  mapperLocations: classpath:dao/*.xml
   
 mybatis-plus:
   configuration:
@@ -27,4 +27,4 @@ mybatis-plus:
 
 logging:
   level: 
-    cn.jt.mapper: debug
+    com.zh.dao: debug

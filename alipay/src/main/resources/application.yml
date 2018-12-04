@@ -1,0 +1,12 @@
+server:
+  port: 8888
+  
+spring:
+  application:
+    name: alipay
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/zh
+    username: root
+    password: root
