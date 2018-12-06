@@ -8,7 +8,6 @@ import com.zh.serverImpl.OrderServerImpl;
 import com.zh.vo.SysResult;
 
 @RestController
-@RequestMapping("/order")
 public class OrderController {
 	@Autowired
 	private OrderServerImpl orderServerImpl;

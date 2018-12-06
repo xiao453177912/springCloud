@@ -6,7 +6,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @SpringBootApplication
-@EnableEurekaClient
+//@EnableEurekaClient
 @MapperScan(basePackages="com.zh.dao")
 public class OrderServer {
 

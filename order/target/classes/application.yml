@@ -7,14 +7,14 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/zh
+    url: jdbc:mysql://127.0.0.1:3306/zh?useSSL=false
     username: root
     password: root
             
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://user:password123@localhost:8761/eureka
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://user:password123@localhost:8761/eureka
 
 mybatis:
   mapUnderscoreToCamelCase: true
@@ -27,4 +27,4 @@ mybatis-plus:
 
 logging:
   level: 
-    com.zh.dao: debug
+    com.zh.dao: INFO
